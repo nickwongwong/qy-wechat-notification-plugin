@@ -17,6 +17,11 @@ import java.util.Map;
 public class BuildOverInfo {
 
     /**
+     * 自定义标题
+     */
+    public String title;
+
+    /**
      * 使用时间，毫秒
      */
     private String useTimeString = "";
@@ -40,6 +45,8 @@ public class BuildOverInfo {
      * 执行结果
      */
     private Result result;
+
+    private NotificationConfig notificationConfig;
 
     public BuildOverInfo(String projectName, Run<?, ?> run, NotificationConfig config){
         //使用时间
@@ -68,6 +75,8 @@ public class BuildOverInfo {
         }
         //结果
         result = run.getResult();
+        title = config.title;
+        notificationConfig = config;
     }
 
     public String toJSONString(){
@@ -76,8 +85,11 @@ public class BuildOverInfo {
         if(StringUtils.isNotEmpty(topicName)){
             content.append(this.topicName);
         }
-        content.append("<font color=\"info\">【" + this.projectName + "】</font>构建" + getStatus() + "\n");
-        content.append(" >构建用时：<font color=\"comment\">" +  this.useTimeString + "</font>\n");
+        content.append(String.format("<font color=\"info\">【%s】【%s】</font>构建%s\n",
+            this.title, this.projectName, getStatus()));
+        content.append(" >UsedTime：<font color=\"comment\">" +  this.useTimeString + "</font>\n");
+        content.append(String.format(" >Cause：<font color=\"comment\">%s</font>\n",
+            notificationConfig.buildCause));
         if(StringUtils.isNotEmpty(this.consoleUrl)) {
             content.append(" >[查看控制台](" + this.consoleUrl + ")");
         }

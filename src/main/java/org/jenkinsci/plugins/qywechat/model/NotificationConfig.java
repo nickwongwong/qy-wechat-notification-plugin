@@ -12,6 +12,18 @@ public class NotificationConfig {
      * 企业微信WebHook地址
      */
     public String webhookUrl = "";
+
+    /**
+     * 自定义标题
+     */
+    public String title;
+
+
+    /**
+     * 触发原因，全局变量：$BUILD_CAUSE
+     */
+    public String buildCause;
+
     /**
      * 通知用户ID
      */

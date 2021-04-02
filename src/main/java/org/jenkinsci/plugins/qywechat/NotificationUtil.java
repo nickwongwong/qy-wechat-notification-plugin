@@ -96,8 +96,9 @@ public class NotificationUtil {
         if (key.contains("$")){
             key = key.trim();
             key = key.replaceFirst("\\$", "");
+            //${BUILD_CAUSE} -> BUILD_CAUSE
             if(key.startsWith("{") && key.endsWith("}")){
-                key = key.substring(1, key.length()-2);
+                key = key.substring(1, key.length()-1);
             }
             if(envVars.containsKey(key)){
                 return envVars.get(key);

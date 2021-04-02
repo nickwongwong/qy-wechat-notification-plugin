@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <f:entry title="配置名(不会作为文本发送)" field="configName" help="/plugin/qy-wechat-notification/help-config-configName.html">
+                    <f:textbox />
+    </f:entry>
     <f:entry title="Webhook地址" field="webhookUrl" help="/plugin/qy-wechat-notification/help-globalConfig-webhookUrl.html">
         <f:textbox />
     </f:entry>
+    <f:entry title="自定义标题" field="title" help="/plugin/qy-wechat-notification/help-config-title.html">
+            <f:textbox />
+        </f:entry>
     <f:entry title="仅失败才@" field="failNotify" help="/plugin/qy-wechat-notification/help-globalConfig-failNotify.html">
         <f:checkbox />
     </f:entry>

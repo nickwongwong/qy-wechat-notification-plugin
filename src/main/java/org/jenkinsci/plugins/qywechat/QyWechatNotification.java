@@ -28,6 +28,16 @@ public class QyWechatNotification extends Publisher implements SimpleBuildStep {
 
     private String webhookUrl;
 
+    /**
+     * 自定义标题
+     */
+    private String title;
+
+    /**
+     * 配置名，不会作为文本发送
+     */
+    private String configName;
+
     private String mentionedId;
 
     private String mentionedMobile;
@@ -177,6 +187,9 @@ public class QyWechatNotification extends Publisher implements SimpleBuildStep {
         if(StringUtils.isNotEmpty(webhookUrl)){
             config.webhookUrl = webhookUrl;
         }
+        if(StringUtils.isNotEmpty(title)){
+            config.title = title;
+        }
         if(StringUtils.isNotEmpty(mentionedId)){
             config.mentionedId = mentionedId;
         }
@@ -203,6 +216,10 @@ public class QyWechatNotification extends Publisher implements SimpleBuildStep {
             String val = NotificationUtil.replaceMultipleEnvValue(config.mentionedMobile, envVars);
             config.mentionedMobile = val;
         }
+//        config.buildCause = NotificationUtil.replaceMultipleEnvValue("${BUILD_CAUSE}", envVars);
+        //这里变量注入依赖于其他插件，同时要开启配置。https://github.com/jenkinsci/build-user-vars-plugin
+        config.buildCause = NotificationUtil.replaceMultipleEnvValue("${BUILD_USER},${BUILD_USER_EMAIL}"
+            , envVars);
         return config;
     }
 
@@ -216,6 +233,26 @@ public class QyWechatNotification extends Publisher implements SimpleBuildStep {
     @DataBoundSetter
     public void setMentionedId(String mentionedId) {
         this.mentionedId = mentionedId;
+    }
+
+    @DataBoundSetter
+    public String getTitle() {
+        return title;
+    }
+
+    @DataBoundSetter
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @DataBoundSetter
+    public String getConfigName() {
+        return configName;
+    }
+
+    @DataBoundSetter
+    public void setConfigName(String configName) {
+        this.configName = configName;
     }
 
     @DataBoundSetter

@@ -5,13 +5,14 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
+<!--        <version>4.16</version>-->
         <version>3.43</version>
     </parent>
     <artifactId>qy-wechat-notification</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
-    <name>Qy Wechat Notification Plugin</name>
+    <name>Qy Wechat Notification Plugin Nowcoder </name>
     <description>A build status notifier that sends notifications to Qy Wechat</description>
     <url>https://wiki.jenkins.io/display/JENKINS/Qy+Wechat+Notification+Plugin</url>
     <developers>
