@@ -45,6 +45,13 @@
 ![构建失败通知](http://cdn.itwake.com/Fr34HIw4g--6Mcln_WpY89wkXE0H.png)
 
 ## 项目开发
+
+配置单独的maven仓库（不然没办法开发）
+```
+https://stackoverflow.com/a/43690775
+https://mvnrepository.com/artifact/org.jenkins-ci.plugins/git?repo=jenkins-releases
+```
+
 ```
 mvn org.jenkins-ci.tools:maven-hpi-plugin:run
 ```
