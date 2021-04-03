@@ -48,6 +48,7 @@
 
 
 构建失败时，群机器人则会执行失败的通知 (需勾选"仅失败才发送信息")
+
 ![构建失败通知1](https://user-images.githubusercontent.com/16626084/113484762-9cd73e80-94dc-11eb-829e-f5edc3bb1720.png)
 ![构建失败通知](https://user-images.githubusercontent.com/16626084/113484873-37d01880-94dd-11eb-84d3-8f4548754c50.png)
 
